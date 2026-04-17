@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Summarization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="blob shape1"></div>
+    <div class="blob shape2"></div>
+    
+    <div class="container glass-panel">
+        <header>
+            <h1>AI Vision Summarizer</h1>
+            <p>Experience state-of-the-art Deep Learning Image Captioning</p>
+        </header>
+
+        <main>
+            <div id="drop-zone" class="upload-area">
+                <div class="upload-content">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">Drag & Drop your image here</p>
+                    <p class="upload-subtext">or click to browse from device</p>
+                    <input type="file" id="file-input" accept="image/*" class="hidden">
+                    <button class="btn browse-btn primary" onclick="document.getElementById('file-input').click()">Select Image</button>
+                </div>
+                
+                <div id="preview-container" class="hidden">
+                    <img id="image-preview" src="" alt="Preview">
+                    <div style="margin-top:20px; display:flex; gap:10px; justify-content:center;">
+                        <button id="remove-btn" class="btn secondary warning">Remove</button>
+                        <button id="analyze-btn" class="btn primary">Summarize Image</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="result-box" class="result-card hidden">
+                <h3>Analysis Complete</h3>
+                <p id="caption-result" class="caption-text"></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
